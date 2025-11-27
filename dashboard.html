@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <aside id="sidebar">
+        <div id="user-info">
+            <div id="user-avatar"></div>
+            <h3 id="user-name"></h3>
+            <p id="user-email"></p>
+        </div>
+        <button id="edit-profile-btn">Edit Profile</button>
+        <button id="logout-btn">Logout</button>
+    </aside>
+
+    <main class="container">
+        <!-- Dashboard -->
+        <section class="dashboard">
+            <div class="card total-income">
+                <h3>Total Income</h3>
+                <p id="total-income">0.00</p>
+            </div>
+            <div class="card total-expenses">
+                <h3>Total Expenses</h3>
+                <p id="total-expenses">0.00</p>
+            </div>
+            <div class="card remaining-balance">
+                <h3>Remaining Balance</h3>
+                <p id="remaining-balance">0.00</p>
+            </div>
+        </section>
+
+        <!-- Add Transaction Form -->
+        <section class="add-transaction">
+            <h2>Add Transaction</h2>
+            <form id="transaction-form">
+                <select id="type" required>
+                    <option value="">Select Type</option>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+                <input type="date" id="date" required>
+                <input type="number" id="amount" placeholder="Amount" min="0.01" step="0.01" required>
+                <select id="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Salary">Salary</option>
+                    <option value="Food">Food</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="PG Rent">PG Rent</option>
+                    <option value="Hospital">Hospital</option>
+                    <option value="Bus Booking">Bus Booking</option>
+                    <option value="Gave to Same One">Gave to Same One</option>
+                    <option value="Others">Others</option>
+                </select>
+                <input type="text" id="recipient" placeholder="Recipient Name" style="display:none;">
+                <button type="submit">Add Transaction</button>
+            </form>
+        </section>
+
+        <!-- Monthly Summary -->
+        <section class="monthly-summary">
+            <h2>Monthly Summary</h2>
+            <div class="date-filters">
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date">
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date">
+            </div>
+        </section>
+
+        <!-- Transaction List -->
+        <section class="transaction-list">
+            <h2>Transaction History</h2>
+            <ul id="transactions">
+                <!-- Transactions will be populated by JS -->
+            </ul>
+        </section>
+
+        <!-- Pie Chart -->
+        <section class="chart-section">
+            <h2>Spending by Category</h2>
+            <div id="no-chart-message" style="display:none; text-align:center; padding:1rem;">No expenses to display in
+                the chart.</div>
+            <canvas id="spending-chart"></canvas>
+        </section>
+    </main>
+
+    <!-- Edit Profile Modal -->
+    <div id="edit-profile-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Profile</h2>
+            <form id="edit-profile-form">
+                <input type="text" id="edit-name" placeholder="Full Name" required>
+                <input type="email" id="edit-email" placeholder="Email" required>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

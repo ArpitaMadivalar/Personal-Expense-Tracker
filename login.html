@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Personal Finance Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h1>Personal Finance Tracker</h1>
+            <div class="form-toggle">
+                <button id="login-toggle" class="active">Login</button>
+                <button id="signup-toggle">Signup</button>
+            </div>
+            <form id="auth-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="email" id="email" placeholder="Email" style="display:none;">
+                <input type="password" id="password" placeholder="Password" required>
+                <input type="password" id="confirm-password" placeholder="Confirm Password" style="display:none;">
+                <button type="submit">Login</button>
+            </form>
+            <p id="message"></p>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+
+</html>
